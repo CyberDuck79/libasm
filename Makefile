@@ -6,13 +6,14 @@
 #    By: fhenrion <fhenrion@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/28 09:21:09 by fhenrion          #+#    #+#              #
-#    Updated: 2020/04/03 16:14:30 by fhenrion         ###   ########.fr        #
+#    Updated: 2020/04/04 14:46:24 by fhenrion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libasm.a
 SRCS_NAME = strlen strcpy strcmp write read strdup memcpy bzero
-SRCS_BONUS_NAME = atoi checkset checkdup skipset setindex atoi_base
+SRCS_BONUS_NAME = atoi checkset checkdup skipset setindex atoi_base new_list \
+list_size list_push_front list_pop_front
 TEST_NAME = test
 DBG_NAME = dbg
 
@@ -29,7 +30,8 @@ ASM_COMPILER = nasm
 ASM_FLAGS = -f macho64 -g -F dwarf
 
 C_COMPILER = gcc
-C_FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+#C_FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+C_FLAGS = -g -fsanitize=address
 
 LINKER = ld
 L_FLAGS = -e _main -macosx_version_min 10.15 -lSystem
@@ -57,7 +59,6 @@ $(TEST_NAME): $(NAME) $(OBJS) $(OBJS_BONUS) $(SRC_TEST)
 
 $(DBG_NAME): $(OBJS) $(OBJS_BONUS) $(OBJ_DBG)
 	$(LINKER) $(L_FLAGS) $^ -o $@
-	./$(DBG_NAME)
 
 %.o: %.s
 	$(ASM_COMPILER) $(ASM_FLAGS) -o $@ $<

@@ -6,7 +6,7 @@
 /*   By: fhenrion <fhenrion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/28 11:48:39 by fhenrion          #+#    #+#             */
-/*   Updated: 2020/04/03 16:16:13 by fhenrion         ###   ########.fr       */
+/*   Updated: 2020/04/04 14:54:17 by fhenrion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		main(void)
 	size_t		len;
 	int			cmp;
 	char		*ptr;
+	t_list		*list;
 	const char	src[] = "bla bla bla je sert juste a tester que tout marche bien\n";
 	const char	src_cmp[] = "bla bla bla je sert juste a comparer les chaines de charactere\n";
 	const char	spd[] = "ajkqhsdgfhqjkghjkgsfhdkgjfgsjhkgdfkjhsgfhjkgqsdhjkfghjksqgfdjkhgsqhjkdfghjksgdqfhjkgsqkjfghekyufgsuykdqgfjkhsdgfkuysegfkjsdhgfykusegfhkjdgfkqsyegfkjdsqgekyusdjhfgkuysefghgskjdhfgqksuyegfkqdsqhjfgqskeyfgskuyegfkqsuygekusgqkduyfgkjyqsegfykugsdfkjygseufygsdkfyuesgfkusdfgkuysgekhjfgqhiusdhflkjsehfhkusdfghqiuegsfsjhkgfhjkqgsdfhjqkgsdkhjfgseyfgsukdygdhjfgseyukfgdskygfkseygkhjsdqgfkjysegykusqgdkjfhgseuygfjkshdqgesykufgskjhgfdyjkgseyfgksjysleuifgliuqsdghfjklgqsdquksdjgqgkjshgdjhkqsdgfhjgkjgesuyfgkyqjsgdfhjgqseykufgqksjygeyufgskqjhgeyufgsqkyuegfhjqlkshfjhdljfkhsqjklhsdfjklhqdsjklfgjksldgfhjkqsgdkjlfglieufhgsldkugdfhjkgsefilugsdjhkfgskdjhfgjshkqdgfkdshjfgdsqkjhfgdshjkfgqkseyugfjhdsgqvhjbdsskhgsefkyugfkugdkhsjfgsjkgfeuyfgqsdkhjfgkseuygfjkysdgfjhdgfkjsygefkuygsdkjfkjefysgdkfhsegfukysdyfkyuegksuygdfqsuilegfslifiueyqkljsdfhlkjhsefilugsdhjkfgsekljhfjklsdhfjklsehfkljsdghfhjgskjfhesfljkshdjkfgsdkjhflseiufgldksjhgfkjqhzeujkqhsdgfhqjkghjkgsfhdkgjfgsjhkgdfkjhsgfhjkgqsdhjkfghjksqgfdjkhgsqhjkdfghjksgdqfhjkgsqkjfghekyufgsuykdqgfjkhsdgfkuysegfkjsdhgfykusegfhkjdgfkqsyegfkjdsqgekyusdjhfgkuysefghgskjdhfgqksuyegfkqdsqhjfgqskeyfgskuyegfkqsuygekusgqkduyfgkjyqsegfykugsdfkjygseufygsdkfyuesgfkusdfgkuysgekhjfgqhiusdhflkjsehfhkusdfghqiuegsfsjhkgfhjkqgsdfhjqkgsdkhjfgseyfgsukdygdhjfgseyukfgdskygfkseygkhjsdqgfkjysegykusqgdkjfhgseuygfjkshdqgesykufgskjhgfdyjkgseyfgksjysleuifgliuqsdghfjklgqsdquksdjgqgkjshgdjhkqsdgfhjgkjgesuyfgkyqjsgdfhjgqseykufgqksjygeyufgskqjhgeyufgsqkyuegfhjqlkshfjhdljfkhsqjklhsdfjklhqdsjklfgjksldgfhjkqsgdkjlfglieufhgsldkugdfhjkgsefilugsdjhkfgskdjhfgjshkqdgfkdshjfgdsqkjhfgdshjkfgqkseyugfjhdsgqvhjbdsskhgsefkyugfkugdkhsjfgsjkgfeuyfgqsdkhjfgkseuygfjkysdgfjhdgfkjsygefkuygsdkjfkjefysgdkfhsegfukysdyfkyuegksuygdfqsuilegfslifiueyqkljsdfhlkjhsefilugsdhjkfgsekljhfjklsdhfjklsehfkljsdghfhjgskjfhesfljkshdjkfgsdkjhflseiufgldksjhgfkjqhzeuilfsdhjkvbsdbffjkhsbfkluegflesqhfmlslifjddiosqhfeliufchbeiuzfgqusjchbfnzegnfxbvnisuybfnjqhseiuzwbfilfsdhjkvbsdbffjkhsbfkluegflesqhfmlslifjddiosqhfelifjqdfqsdfdsfdsqfdsqfdsfqsdfsdqqsdfsqfddsqfqsdffsqddqsdfsdqfffffffkjkqhsdgfhqjkghjkgsfhdkgjfgsjhkgdfkjhsgfhjkgqsdhjkfghjksqgfdjkhgsqhjkdfghjksgdqfhjkgsqkjfghekyufgsuykdqgfjkhsdgfkuysegfkjsdhgfykusegfhkjdgfkqsyegfkjdsqgekyusdjhfgkuysefghgskjdhfgqksuyegfkqdsqhjfgqskeyfgskuyegfkqsuygekusgqkduyfgkjyqsegfykugsdfkjygseufygsdkfyuesgfkusdfgkuysgekhjfgqhiusdhflkjsehfhkusdfghqiuegsfsjhkgfhjkqgsdfhjqkgsdkhjfgseyfgsukdygdhjfgseyukfgdskygfkseygkhjsdqgfkjysegykusqgdkjfhgseuygfjkshdqgesykufgskjhgfdyjkgseyfgksjysleuifgliuqsdghfjklgqsdquksdjgqgkjshgdjhkqsdgfhjgkjgesuyfgkyqjsgdfhjgqseykufgqksjygeyufgskqjhgeyufgsqkyuegfhjqlkshfjhdljfkhsqjklhsdfjklhqdsjklfgjksldgfhjkqsgdkjlfglieufhgsldkugdfhjkgsefilugsdjhkfgskdjhfgjshkqdgfkdshjfgdsqkjhfgdshjkfgqkseyugfjhdsgqvhjbdsskhgsefkyugfkugdkhsjfgsjkgfeuyfgqsdkhjfgkseuygfjkysdgfjhdgfkjsygefkuygsdkjfkjefysgdkfhsegfukysdyfkyuegksuygdfqsuilegfslifiueyqkljsdfhlkjhsefilugsdhjkfgsekljhfjklsdhfjklsehfkljsdghfhjgskjfhesfljkshdjkfgsdkjhflseiufgldksjhgfkjqhzeujkqhsdgfhqjkghjkgsfhdkgjfgsjhkgdfkjhsgfhjkgqsdhjkfghjksqgfdjkhgsqhjkdfghjksgdqfhjkgsqkjfghekyufgsuykdqgfjkhsdgfkuysegfkjsdhgfykusegfhkjdgfkqsyegfkjdsqgekyusdjhfgkuysefghgskjdhfgqksuyegfkqdsqhjfgqskeyfgskuyegfkqsuygekusgqkduyfgkjyqsegfykugsdfkjygseufygsdkfyuesgfkusdfgkuysgekhjfgqhiusdhflkjsehfhkusdfghqiuegsfsjhkgfhjkqgsdfhjqkgsdkhjfgseyfgsukdygdhjfgseyukfgdskygfkseygkhjsdqgfkjysegykusqgdkjfhgseuygfjkshdqgesykufgskjhgfdyjkgseyfgksjysleuifgliuqsdghfjklgqsdquksdjgqgkjshgdjhkqsdgfhjgkjgesuyfgkyqjsgdfhjgqseykufgqksjygeyufgskqjhgeyufgsqkyuegfhjqlkshfjhdljfkhsqjklhsdfjklhqdsjklfgjksldgfhjkqsgdkjlfglieufhgsldkugdfhjkgsefilugsdjhkfgskdjhfgjshkqdgfkdshjfgdsqkjhfgdshjkfgqkseyugfjhdsgqvhjbdsskhgsefkyugfkugdkhsjfgsjkgfeuyfgqsdkhjfgkseuygfjkysdgfjhdgfkjsygefkuygsdkjfkjefysgdkfhsegfukysdyfkyuegksuygdfqsuilegfslifiueyqkljsdfhlkjhsefilugsdhjkfgsekljhfjklsdhfjklsehfkljsdghfhjgskjfhesfljkshdjkfgsdkjhflseiufgldksjhgfkjqhzeuilfsdhjkvbsdbffjkhsbfkluegflesqhfmlslifjddiosqhfeliufchbeiuzfgqusjchbfnzegnfxbvnisuybfnjqhseiuzwbfilfsdhjkvbsdbffjkhsbfkluegflesqhfmlslifjddiosqhfelifjqdfqsdfdsfdsqfdsqfdsfqsdfsdqqsdfsqfddsqfqsdffsqddqsdfsdqfffffffk";
@@ -50,7 +51,6 @@ int		main(void)
 	t = clock() - t;
 	printf("\n-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
 	printf("ft_read\n");
-*/
 
 	printf("STRLEN TESTS\n");
 	printf("\nSPEED TESTS\n");
@@ -205,6 +205,7 @@ int		main(void)
 	printf("ft_setindex(\"\", 'a') : %li\n", ft_setindex("", 'a'));
 	printf("ft_setindex(\"0123456789\", 0) : %li\n", ft_setindex("0123456789", 0));
 	printf("\n\n");
+*/
 
 	printf("FONCTIONS BONUS\n");
 	cmp = ft_atoi_base("10010", "01");
@@ -215,5 +216,19 @@ int		main(void)
 	printf("ft_atoi_base(\"10010\", \"01\") : %i\n", cmp);
 	cmp = ft_atoi_base(" \t-123y", "0123456789");
 	printf("ft_atoi_base(\" \t-123y\", \"0123456789\") : %i\n", cmp);
+	
+	printf("\nLIST FONCTIONS\n");
+	list = ft_new_list("test");
+	printf("ft_newlist(\"test\")\n");
+	printf("list : %p, list->data : %p, list->next : %p\n", list, &list->data, &list->next);
+	printf("list->data : %s, list->next : %p\n", list->data, list->next);
+	printf("ft_list_push_front(&list, \"test2\")\n");
+	ft_list_push_front(&list, "test2");
+	printf("list->data : %s, list->next : %p\n", list->data, list->next);
+	printf("ft_list_size(list)\n");
+	printf("size : %lu\n", ft_list_size(list));
+	printf("ft_list_pop_front(&list)\n");
+	ptr = ft_list_pop_front(&list);
+	printf("ptr : %s, list->data : %s\n", ptr, list->data);
 	return (0);
 }
