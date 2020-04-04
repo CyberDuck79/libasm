@@ -1,5 +1,5 @@
 ; Prototype :	int ft_checkset(const char *str, const char *set)
-; Registers :	rdi rsi rdx
+; Registers :	rdi rsi rcx
 ; Description :	return 1 if a char of the set is present in the input string
 
 global		_ft_checkset
@@ -8,9 +8,9 @@ section 	.text
 
 _ft_checkset:
 	cld
-	mov		rdx, rdi
+	mov		rcx, rdi
 .reset_str:
-	mov		rdi, rdx
+	mov		rdi, rcx
 	lodsb
 	test	al, al
 	jz		.false

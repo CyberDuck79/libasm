@@ -25,27 +25,29 @@ section		.text
 
 ; r8 r9 r10 r11 r12 -> temporary parameters registers savers
 _ft_atoi_base:
-	push	r12				; callee-saved register
 	mov		r8, rdi			; input ptr saver
 	mov		r9, rsi			; base ptr saver
+	mov		rdi, r9
+	call	_ft_strlen		; rdi rcx
+	cmp		rax, 0x01
+	jbe		.error
+	mov		rdx, rax		; base
+.check_invalid:
+	mov		rdi, r9
+	lea		rsi, [.inv]
+	call	_ft_checkset	; rdi rsi rcx
+	test	rax, rax
+	jnz		.error
+.check_dup:
 	mov		rdi, r9
 	call	_ft_checkdup	; rdi rsi
 	test	rax, rax
 	jnz		.error
-.check_invalid:
-	mov		rdi, r9
-	lea		rsi, [.inv]
-	call	_ft_checkset	; rdi rsi rdx
-	test	rax, rax
-	jnz		.error
-.get_base:
-	mov		rdi, r9
-	call	_ft_strlen		; rdi rcx
-	mov		rdx, rax		; base
 .skip_spaces:
 	mov		rdi, r8
 	lea		rsi, [.spc]
 	call	_ft_skipset		; rdi rsi rcx
+	push	r12				; callee-saved register
 	xor		r10, r10		; neg
 	xor		rax, rax
 .neg_sign:

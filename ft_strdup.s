@@ -1,5 +1,5 @@
 ; Prototype :	char *ft_strdup(const char *s)
-; Registers :	rdi rsi rdx rcx r8
+; Registers :	rdi rsi rdx rcx r8 r9 r10
 ; Description :	return a new string copy of the input string
 
 global		_ft_strdup

@@ -6,7 +6,7 @@
 /*   By: fhenrion <fhenrion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/28 11:48:39 by fhenrion          #+#    #+#             */
-/*   Updated: 2020/04/04 14:54:17 by fhenrion         ###   ########.fr       */
+/*   Updated: 2020/04/04 16:45:30 by fhenrion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,14 +212,24 @@ int		main(void)
 	printf("ft_atoi_base(\"10010\", \"01\") : %i\n", cmp);
 	cmp = ft_atoi_base(" \t-123y", "0123456789");
 	printf("ft_atoi_base(\" \t-123y\", \"0123456789\") : %i\n", cmp);
-	cmp = ft_atoi_base("10010", "01");
-	printf("ft_atoi_base(\"10010\", \"01\") : %i\n", cmp);
-	cmp = ft_atoi_base(" \t-123y", "0123456789");
-	printf("ft_atoi_base(\" \t-123y\", \"0123456789\") : %i\n", cmp);
+	cmp = ft_atoi_base("10010", "1");
+	printf("ft_atoi_base(\"10010\", \"1\") : %i\n", cmp);
+	cmp = ft_atoi_base("10010", "");
+	printf("ft_atoi_base(\"10010\", \"\") : %i\n", cmp);
+	cmp = ft_atoi_base("zer", "zere");
+	printf("ft_atoi_base(\"zer\", \"zere\") : %i\n", cmp);
+	cmp = ft_atoi_base("", "0123456789");
+	printf("ft_atoi_base(\"\", \"0123456789\") : %i\n", cmp);
+	cmp = ft_atoi_base("234", "+0123456789");
+	printf("ft_atoi_base(\"234\", \"+0123456789\") : %i\n", cmp);
+	cmp = ft_atoi_base("234", "-0123456789");
+	printf("ft_atoi_base(\"234\", \"-0123456789\") : %i\n", cmp);
+	cmp = ft_atoi_base("234", "\t0123456789");
+	printf("ft_atoi_base(\"234\", \"\t0123456789\") : %i\n", cmp);
 	
 	printf("\nLIST FONCTIONS\n");
-	list = ft_new_list("test");
-	printf("ft_newlist(\"test\")\n");
+	list = ft_create_elem("test");
+	printf("ft_create_elem(\"test\")\n");
 	printf("list : %p, list->data : %p, list->next : %p\n", list, &list->data, &list->next);
 	printf("list->data : %s, list->next : %p\n", list->data, list->next);
 	printf("ft_list_push_front(&list, \"test2\")\n");
