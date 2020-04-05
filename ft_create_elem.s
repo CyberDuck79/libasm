@@ -1,5 +1,5 @@
 ; Prototype : t_list *ft_create_elem(void *data)
-; Registers : rdi
+; Registers : rdi rsi rdx rcx r8 r9
 ; Description : Create a new list with data ptr
 
 global		_ft_create_elem

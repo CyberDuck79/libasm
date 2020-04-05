@@ -6,7 +6,7 @@
 /*   By: fhenrion <fhenrion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/28 11:48:39 by fhenrion          #+#    #+#             */
-/*   Updated: 2020/04/04 16:45:30 by fhenrion         ###   ########.fr       */
+/*   Updated: 2020/04/05 18:40:49 by fhenrion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		main(void)
 	int			cmp;
 	char		*ptr;
 	t_list		*list;
+	t_list		*node;
 	const char	src[] = "bla bla bla je sert juste a tester que tout marche bien\n";
 	const char	src_cmp[] = "bla bla bla je sert juste a comparer les chaines de charactere\n";
 	const char	spd[] = "ajkqhsdgfhqjkghjkgsfhdkgjfgsjhkgdfkjhsgfhjkgqsdhjkfghjksqgfdjkhgsqhjkdfghjksgdqfhjkgsqkjfghekyufgsuykdqgfjkhsdgfkuysegfkjsdhgfykusegfhkjdgfkqsyegfkjdsqgekyusdjhfgkuysefghgskjdhfgqksuyegfkqdsqhjfgqskeyfgskuyegfkqsuygekusgqkduyfgkjyqsegfykugsdfkjygseufygsdkfyuesgfkusdfgkuysgekhjfgqhiusdhflkjsehfhkusdfghqiuegsfsjhkgfhjkqgsdfhjqkgsdkhjfgseyfgsukdygdhjfgseyukfgdskygfkseygkhjsdqgfkjysegykusqgdkjfhgseuygfjkshdqgesykufgskjhgfdyjkgseyfgksjysleuifgliuqsdghfjklgqsdquksdjgqgkjshgdjhkqsdgfhjgkjgesuyfgkyqjsgdfhjgqseykufgqksjygeyufgskqjhgeyufgsqkyuegfhjqlkshfjhdljfkhsqjklhsdfjklhqdsjklfgjksldgfhjkqsgdkjlfglieufhgsldkugdfhjkgsefilugsdjhkfgskdjhfgjshkqdgfkdshjfgdsqkjhfgdshjkfgqkseyugfjhdsgqvhjbdsskhgsefkyugfkugdkhsjfgsjkgfeuyfgqsdkhjfgkseuygfjkysdgfjhdgfkjsygefkuygsdkjfkjefysgdkfhsegfukysdyfkyuegksuygdfqsuilegfslifiueyqkljsdfhlkjhsefilugsdhjkfgsekljhfjklsdhfjklsehfkljsdghfhjgskjfhesfljkshdjkfgsdkjhflseiufgldksjhgfkjqhzeujkqhsdgfhqjkghjkgsfhdkgjfgsjhkgdfkjhsgfhjkgqsdhjkfghjksqgfdjkhgsqhjkdfghjksgdqfhjkgsqkjfghekyufgsuykdqgfjkhsdgfkuysegfkjsdhgfykusegfhkjdgfkqsyegfkjdsqgekyusdjhfgkuysefghgskjdhfgqksuyegfkqdsqhjfgqskeyfgskuyegfkqsuygekusgqkduyfgkjyqsegfykugsdfkjygseufygsdkfyuesgfkusdfgkuysgekhjfgqhiusdhflkjsehfhkusdfghqiuegsfsjhkgfhjkqgsdfhjqkgsdkhjfgseyfgsukdygdhjfgseyukfgdskygfkseygkhjsdqgfkjysegykusqgdkjfhgseuygfjkshdqgesykufgskjhgfdyjkgseyfgksjysleuifgliuqsdghfjklgqsdquksdjgqgkjshgdjhkqsdgfhjgkjgesuyfgkyqjsgdfhjgqseykufgqksjygeyufgskqjhgeyufgsqkyuegfhjqlkshfjhdljfkhsqjklhsdfjklhqdsjklfgjksldgfhjkqsgdkjlfglieufhgsldkugdfhjkgsefilugsdjhkfgskdjhfgjshkqdgfkdshjfgdsqkjhfgdshjkfgqkseyugfjhdsgqvhjbdsskhgsefkyugfkugdkhsjfgsjkgfeuyfgqsdkhjfgkseuygfjkysdgfjhdgfkjsygefkuygsdkjfkjefysgdkfhsegfukysdyfkyuegksuygdfqsuilegfslifiueyqkljsdfhlkjhsefilugsdhjkfgsekljhfjklsdhfjklsehfkljsdghfhjgskjfhesfljkshdjkfgsdkjhflseiufgldksjhgfkjqhzeuilfsdhjkvbsdbffjkhsbfkluegflesqhfmlslifjddiosqhfeliufchbeiuzfgqusjchbfnzegnfxbvnisuybfnjqhseiuzwbfilfsdhjkvbsdbffjkhsbfkluegflesqhfmlslifjddiosqhfelifjqdfqsdfdsfdsqfdsqfdsfqsdfsdqqsdfsqfddsqfqsdffsqddqsdfsdqfffffffkjkqhsdgfhqjkghjkgsfhdkgjfgsjhkgdfkjhsgfhjkgqsdhjkfghjksqgfdjkhgsqhjkdfghjksgdqfhjkgsqkjfghekyufgsuykdqgfjkhsdgfkuysegfkjsdhgfykusegfhkjdgfkqsyegfkjdsqgekyusdjhfgkuysefghgskjdhfgqksuyegfkqdsqhjfgqskeyfgskuyegfkqsuygekusgqkduyfgkjyqsegfykugsdfkjygseufygsdkfyuesgfkusdfgkuysgekhjfgqhiusdhflkjsehfhkusdfghqiuegsfsjhkgfhjkqgsdfhjqkgsdkhjfgseyfgsukdygdhjfgseyukfgdskygfkseygkhjsdqgfkjysegykusqgdkjfhgseuygfjkshdqgesykufgskjhgfdyjkgseyfgksjysleuifgliuqsdghfjklgqsdquksdjgqgkjshgdjhkqsdgfhjgkjgesuyfgkyqjsgdfhjgqseykufgqksjygeyufgskqjhgeyufgsqkyuegfhjqlkshfjhdljfkhsqjklhsdfjklhqdsjklfgjksldgfhjkqsgdkjlfglieufhgsldkugdfhjkgsefilugsdjhkfgskdjhfgjshkqdgfkdshjfgdsqkjhfgdshjkfgqkseyugfjhdsgqvhjbdsskhgsefkyugfkugdkhsjfgsjkgfeuyfgqsdkhjfgkseuygfjkysdgfjhdgfkjsygefkuygsdkjfkjefysgdkfhsegfukysdyfkyuegksuygdfqsuilegfslifiueyqkljsdfhlkjhsefilugsdhjkfgsekljhfjklsdhfjklsehfkljsdghfhjgskjfhesfljkshdjkfgsdkjhflseiufgldksjhgfkjqhzeujkqhsdgfhqjkghjkgsfhdkgjfgsjhkgdfkjhsgfhjkgqsdhjkfghjksqgfdjkhgsqhjkdfghjksgdqfhjkgsqkjfghekyufgsuykdqgfjkhsdgfkuysegfkjsdhgfykusegfhkjdgfkqsyegfkjdsqgekyusdjhfgkuysefghgskjdhfgqksuyegfkqdsqhjfgqskeyfgskuyegfkqsuygekusgqkduyfgkjyqsegfykugsdfkjygseufygsdkfyuesgfkusdfgkuysgekhjfgqhiusdhflkjsehfhkusdfghqiuegsfsjhkgfhjkqgsdfhjqkgsdkhjfgseyfgsukdygdhjfgseyukfgdskygfkseygkhjsdqgfkjysegykusqgdkjfhgseuygfjkshdqgesykufgskjhgfdyjkgseyfgksjysleuifgliuqsdghfjklgqsdquksdjgqgkjshgdjhkqsdgfhjgkjgesuyfgkyqjsgdfhjgqseykufgqksjygeyufgskqjhgeyufgsqkyuegfhjqlkshfjhdljfkhsqjklhsdfjklhqdsjklfgjksldgfhjkqsgdkjlfglieufhgsldkugdfhjkgsefilugsdjhkfgskdjhfgjshkqdgfkdshjfgdsqkjhfgdshjkfgqkseyugfjhdsgqvhjbdsskhgsefkyugfkugdkhsjfgsjkgfeuyfgqsdkhjfgkseuygfjkysdgfjhdgfkjsygefkuygsdkjfkjefysgdkfhsegfukysdyfkyuegksuygdfqsuilegfslifiueyqkljsdfhlkjhsefilugsdhjkfgsekljhfjklsdhfjklsehfkljsdghfhjgskjfhesfljkshdjkfgsdkjhflseiufgldksjhgfkjqhzeuilfsdhjkvbsdbffjkhsbfkluegflesqhfmlslifjddiosqhfeliufchbeiuzfgqusjchbfnzegnfxbvnisuybfnjqhseiuzwbfilfsdhjkvbsdbffjkhsbfkluegflesqhfmlslifjddiosqhfelifjqdfqsdfdsfdsqfdsqfdsfqsdfsdqqsdfsqfddsqfqsdffsqddqsdfsdqfffffffk";
@@ -205,7 +206,6 @@ int		main(void)
 	printf("ft_setindex(\"\", 'a') : %li\n", ft_setindex("", 'a'));
 	printf("ft_setindex(\"0123456789\", 0) : %li\n", ft_setindex("0123456789", 0));
 	printf("\n\n");
-*/
 
 	printf("FONCTIONS BONUS\n");
 	cmp = ft_atoi_base("10010", "01");
@@ -240,5 +240,34 @@ int		main(void)
 	printf("ft_list_pop_front(&list)\n");
 	ptr = ft_list_pop_front(&list);
 	printf("ptr : %s, list->data : %s\n", ptr, list->data);
+*/
+	printf("\nLIST FONCTIONS\n");
+	list = ft_create_elem("paul");
+	ft_list_push_front(&list, "flavien");
+	ft_list_push_front(&list, "ayuma");
+	ft_list_push_front(&list, "josiane");
+	ft_list_push_front(&list, "robert");
+	ft_list_push_front(&list, "julien");
+	ft_list_push_front(&list, "sandra");
+	ft_list_push_front(&list, "marie");
+	ft_list_push_front(&list, "jean");
+	ft_list_push_front(&list, "lea");
+	ft_list_push_front(&list, "hubert");
+	ft_list_push_front(&list, "jeanne");
+	printf("unsorted :\n");
+	node = list;
+	while (node)
+	{
+		printf("%s\n", node->data);
+		node = node->next;
+	}
+	ft_list_sort(&list, ft_strcmp);
+	printf("\nsorted :\n");
+	node = list;
+	while (node)
+	{
+		printf("%s\n", node->data);
+		node = node->next;
+	}
 	return (0);
 }
