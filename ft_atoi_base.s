@@ -24,6 +24,7 @@ section		.data
 section		.text
 
 ; r8 r9 r10 r11 r12 -> temporary parameters registers savers
+; refaire sans les appels ?
 _ft_atoi_base:
 	mov		r8, rdi			; input ptr saver
 	mov		r9, rsi			; base ptr saver

@@ -6,14 +6,14 @@
 #    By: fhenrion <fhenrion@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/28 09:21:09 by fhenrion          #+#    #+#              #
-#    Updated: 2020/04/05 18:40:29 by fhenrion         ###   ########.fr        #
+#    Updated: 2020/04/06 13:27:57 by fhenrion         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libasm.a
 SRCS_NAME = strlen strcpy strcmp write read strdup memcpy bzero
 SRCS_BONUS_NAME = atoi checkset checkdup skipset setindex atoi_base \
-create_elem list_size list_push_front list_pop_front list_sort
+create_elem list_size list_push_front list_pop_front list_sort list_remove_if
 TEST_NAME = test
 DBG_NAME = dbg
 
@@ -34,7 +34,7 @@ C_COMPILER = gcc
 C_FLAGS = -g -fsanitize=address
 
 LINKER = ld
-L_FLAGS = -e _main -macosx_version_min 10.15 -lSystem
+L_FLAGS = -e _main -macosx_version_min 10.15 -lSystem -arch x86_64
 
 LIB_ARCHIVER = ar rc
 LIB_INDEXER = ranlib

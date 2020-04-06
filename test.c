@@ -6,7 +6,7 @@
 /*   By: fhenrion <fhenrion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/28 11:48:39 by fhenrion          #+#    #+#             */
-/*   Updated: 2020/04/05 18:40:49 by fhenrion         ###   ########.fr       */
+/*   Updated: 2020/04/06 13:34:46 by fhenrion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -242,18 +242,18 @@ int		main(void)
 	printf("ptr : %s, list->data : %s\n", ptr, list->data);
 */
 	printf("\nLIST FONCTIONS\n");
-	list = ft_create_elem("paul");
-	ft_list_push_front(&list, "flavien");
-	ft_list_push_front(&list, "ayuma");
-	ft_list_push_front(&list, "josiane");
-	ft_list_push_front(&list, "robert");
-	ft_list_push_front(&list, "julien");
-	ft_list_push_front(&list, "sandra");
-	ft_list_push_front(&list, "marie");
-	ft_list_push_front(&list, "jean");
-	ft_list_push_front(&list, "lea");
-	ft_list_push_front(&list, "hubert");
-	ft_list_push_front(&list, "jeanne");
+	list = ft_create_elem(ft_strdup("robert"));
+	ft_list_push_front(&list, ft_strdup("flavien"));
+	ft_list_push_front(&list, ft_strdup("ayuma"));
+	ft_list_push_front(&list, ft_strdup("josiane"));
+	ft_list_push_front(&list, ft_strdup("jeanne"));
+	ft_list_push_front(&list, ft_strdup("julien"));
+	ft_list_push_front(&list, ft_strdup("sandra"));
+	ft_list_push_front(&list, ft_strdup("marie"));
+	ft_list_push_front(&list, ft_strdup("jean"));
+	ft_list_push_front(&list, ft_strdup("lea"));
+	ft_list_push_front(&list, ft_strdup("hubert"));
+	ft_list_push_front(&list, ft_strdup("paul"));
 	printf("unsorted :\n");
 	node = list;
 	while (node)
@@ -261,12 +261,23 @@ int		main(void)
 		printf("%s\n", node->data);
 		node = node->next;
 	}
+	/*
 	ft_list_sort(&list, ft_strcmp);
 	printf("\nsorted :\n");
 	node = list;
 	while (node)
 	{
 		printf("%s\n", node->data);
+		node = node->next;
+	}
+	*/
+	printf("remove if -> robert\n");
+	ft_list_remove_if(&list, "robert", ft_strcmp, free);
+	node = list;
+	while (node)
+	{
+		printf("%s\n", node->data);
+		printf("%p\n", node->next);
 		node = node->next;
 	}
 	return (0);
