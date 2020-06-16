@@ -2,26 +2,26 @@
 ; Registers :	rdi rsi rdx rcx r8 r9 r10
 ; Description :	return a new string copy of the input string
 
-global		_ft_strdup
+global		ft_strdup
 
-extern		_ft_strlen
-extern		_malloc
-extern		_ft_memcpy
+extern		ft_strlen
+extern		malloc
+extern		ft_memcpy
 
 section		.text
 
-_ft_strdup:
+ft_strdup:
 	push	rdi
-	call	_ft_strlen
+	call	ft_strlen
 	inc		rax
 	mov		rdi, rax
 	push	rax
 	sub		rsp, 0x08
-	call	_malloc
+	call	malloc
 	add		rsp, 0x08
 	pop		rdx
 	pop		rdi
 	mov		rsi, rdi
 	mov		rdi, rax
-	call	_ft_memcpy
+	call	ft_memcpy
 	ret

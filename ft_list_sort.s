@@ -2,11 +2,11 @@
 ; Registers : rdi rsi -- reg used by cmp -- r12 r13 r14 r15
 ; Desciption : sort elements of a list with cmp function for comparison
 
-global		_ft_list_sort
+global		ft_list_sort
 
 section		.text
 
-_ft_list_sort:
+ft_list_sort:
 	push	r12				; save callee save registers
 	push	r13				; used because don't know
 	push	r14				; possible parameters

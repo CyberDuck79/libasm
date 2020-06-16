@@ -5,11 +5,11 @@
 ; 				accept one sign char +/- before digits
 ; 				stop conversion when char is not anymore a digit
 
-global		_ft_atoi
+global		ft_atoi
 
 section		.text
 
-_ft_atoi:
+ft_atoi:
 	mov		rcx, 0x0a
 	xor		rax, rax
 	xor		rsi, rsi

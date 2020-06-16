@@ -30,28 +30,27 @@ int		main(void)
 	char		dst[4096];
 	char		spd_atoi[] = " \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r  \t \n \r -2147483641HJGQGSDHJQ";
 
-/*
 	printf("WRITE TESTS\n");
 	t = clock();
 	write(1, spd, 4096);
 	t = clock() - t;
 	printf("\n-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("write\n");
+	printf("write\n\n");
 	t = clock();
 	ft_write(1, spd, 4096);
 	t = clock() - t;
 	printf("\n-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("ft_write\n");
+	printf("ft_write\n\n\n");
 	t = clock();
 	read(0, dst, 4096);
 	t = clock() - t;
-	printf("\n-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("read\n");
+	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
+	printf("read\n\n");
 	t = clock();
 	ft_read(0, dst, 4096);
 	t = clock() - t;
-	printf("\n-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("ft_read\n");
+	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
+	printf("ft_read\n\n\n");
 
 	printf("STRLEN TESTS\n");
 	printf("\nSPEED TESTS\n");
@@ -59,12 +58,12 @@ int		main(void)
 	len = strlen(src);
 	t = clock() - t; 
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("strlen : %lu\n", len);
+	printf("strlen : %lu\n\n", len);
 	t = clock();
 	len = ft_strlen(src);
 	t = clock() - t; 
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("ft_strlen : %lu\n", len);
+	printf("ft_strlen : %lu\n\n\n", len);
 	printf("\n\n");
 
 	printf("STRCPY TESTS\n");
@@ -73,18 +72,18 @@ int		main(void)
 	ptr = strcpy(dst, spd);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("strcpy : %p\n", ptr);
+	printf("strcpy : %p\n\n", ptr);
 	t = clock();
 	ptr = ft_strcpy(dst, spd);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("ft_strcpy : %p\n", ptr);
+	printf("ft_strcpy : %p\n\n", ptr);
 	printf("\nCOMPARE TESTS\n");
 	printf("strcpy : %s", strcpy(dst, src));
 	printf("ft_strcpy : %s", ft_strcpy(dst, src));
 	printf("strcpy : %s", strcpy(dst, ""));
 	printf("ft_strcpy : %s", ft_strcpy(dst, ""));
-	printf("\n\n");
+	printf("\n\n\n");
 
 	printf("STRCMP TESTS\n");
 	printf("\nSPEED TESTS\n");
@@ -92,18 +91,18 @@ int		main(void)
 	cmp = strcmp(spd, spd_cmp);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("strcmp : %i\n", cmp);
+	printf("strcmp : %i\n\n", cmp);
 	t = clock();
 	cmp = ft_strcmp(spd, spd_cmp);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("ft_strcmp : %i\n", cmp);
+	printf("ft_strcmp : %i\n\n", cmp);
 	printf("\nCOMPARE TESTS\n");
 	printf("strcmp : %i\n", strcmp(src, src_cmp));
 	printf("ft_strcmp : %i\n", ft_strcmp(src, src_cmp));
 	printf("strcmp : %i\n", strcmp(src, src));
 	printf("ft_strcmp : %i\n", ft_strcmp(src, src));
-	printf("\n\n");
+	printf("\n\n\n");
 
 	printf("BZERO TESTS\n");
 	printf("\nSPEED TESTS\n");
@@ -111,12 +110,12 @@ int		main(void)
 	bzero(dst, 4096);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("bzero\n");
+	printf("bzero\n\n");
 	t = clock();
 	ft_bzero(dst, 4096);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("ft_bzero\n");
+	printf("ft_bzero\n\n");
 	printf("\n\n");
 
 	printf("MEMCPY TESTS\n");
@@ -125,16 +124,16 @@ int		main(void)
 	ptr = memcpy(dst, spd, 4096);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("memcpy : %p\n", ptr);
+	printf("memcpy : %p\n\n", ptr);
 	t = clock();
 	ptr = ft_memcpy(dst, spd, 4096);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("ft_memcpy : %p\n", ptr);
+	printf("ft_memcpy : %p\n\n", ptr);
 	printf("\nCOMPARE TESTS\n");
-	printf("memcpy : %s", memcpy(dst, src, 57));
-	printf("ft_memcpy : %s", ft_memcpy(dst, src, 57));
-	printf("\n\n");
+	printf("memcpy : %s", (char*)memcpy(dst, src, 57));
+	printf("ft_memcpy : %s", (char*)ft_memcpy(dst, src, 57));
+	printf("\n\n\n");
 
 	printf("STRDUP TESTS\n");
 	printf("\nSPEED TESTS\n");
@@ -142,18 +141,18 @@ int		main(void)
 	ptr = strdup(spd);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("strdup : %p\n", ptr);
+	printf("strdup : %p\n\n", ptr);
 	free(ptr);
 	t = clock();
 	ptr = ft_strdup(spd);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("ft_strdup : %p\n", ptr);
+	printf("ft_strdup : %p\n\n", ptr);
 	free(ptr);
 	printf("\nCOMPARE TESTS\n");
 	printf("strdup : %s", strdup(src));
 	printf("ft_strdup : %s", ft_strdup(src));
-	printf("\n\n");
+	printf("\n\n\n");
 
 	printf("ATOI TESTS\n");
 	printf("\nSPEED TESTS\n");
@@ -161,50 +160,29 @@ int		main(void)
 	cmp = atoi(spd_atoi);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("atoi : %i\n", cmp);
+	printf("atoi : %i\n\n", cmp);
 	t = clock();
 	cmp = ft_atoi(spd_atoi);
 	t = clock() - t;
 	printf("-------- exec time : %f\n", ((double)t)/CLOCKS_PER_SEC);
-	printf("ft_atoi : %i\n", cmp);
+	printf("ft_atoi : %i\n\n", cmp);
 	printf("\nCOMPARE TESTS\n");
-	printf("atoi : %i\n", atoi("   +2147483641z"));
-	printf("ft_atoi : %i\n", atoi("   +2147483641z"));
-	printf("atoi : %i\n", atoi(""));
-	printf("ft_atoi : %i\n", atoi(""));
-	printf("atoi : %i\n", atoi("-"));
-	printf("ft_atoi : %i\n", atoi("-"));
-	printf("atoi : %i\n", atoi("+"));
-	printf("ft_atoi : %i\n", atoi("+"));
-	printf("atoi : %i\n", atoi("++4"));
-	printf("ft_atoi : %i\n", atoi("++4"));
-	printf("atoi : %i\n", atoi("--4"));
-	printf("ft_atoi : %i\n", atoi("--4"));
-	printf("atoi : %i\n", atoi("\n"));
-	printf("ft_atoi : %i\n", atoi("\n"));
-	printf("atoi : %i\n", atoi("qezzqe"));
-	printf("ft_atoi : %i\n", atoi("qezzqe"));
-	printf("\n\n");
-
-	printf("FONCTIONS PERSO\n");
-	printf("ft_checkset(\"*^!&[]()\", \")xe\") : %i\n", ft_checkset("*^!%&[]()", ")xe"));
-	printf("ft_checkset(\"*^!&()[]\", \"zr)\") : %i\n", ft_checkset("*^!%&()[]", "zr)"));
-	printf("ft_checkset(\"*^!&()[]\", \"xte\") : %i\n", ft_checkset("*^!%&()[]", "xte"));
-	printf("ft_checkset(\"\", \"xte\") : %i\n", ft_checkset("", "xte"));
-	printf("ft_checkset(\"*^!&()[]\", \"\") : %i\n", ft_checkset("*^!%&()[]", ""));
-	printf("ft_checkset(\"\", \"\") : %i\n", ft_checkset("", ""));
-	printf("ft_checkdup(\"azertyuiop\") : %i\n", ft_checkdup("azertyuiop"));
-	printf("ft_checkdup(\"azeratyuiop\") : %i\n", ft_checkdup("azeratyuiop"));
-	printf("ft_checkdup(\"\") : %i\n", ft_checkdup(""));
-	printf("ft_skipset(\"ataetatBLOB\", \"eat\") : %s\n", ft_skipset("ataetatBLOB", "eat"));
-	printf("ft_skipset(\"\", \"eat\") : %s\n", ft_skipset("", "eat"));
-	printf("ft_skipset(\"ataetatBLOB\", \"\") : %s\n", ft_skipset("ataetatBLOB", ""));
-	printf("ft_setindex(\"0123456789\", '2') : %li\n", ft_setindex("0123456789", '2'));
-	printf("ft_setindex(\"0123456789\", '9') : %li\n", ft_setindex("0123456789", '9'));
-	printf("ft_setindex(\"0123456789\", '0') : %li\n", ft_setindex("0123456789", '0'));
-	printf("ft_setindex(\"0123456789\", 'a') : %li\n", ft_setindex("0123456789", 'a'));
-	printf("ft_setindex(\"\", 'a') : %li\n", ft_setindex("", 'a'));
-	printf("ft_setindex(\"0123456789\", 0) : %li\n", ft_setindex("0123456789", 0));
+	printf("atoi(\"   +2147483641z\") : %i\n", atoi("   +2147483641z"));
+	printf("ft_atoi(\"   +2147483641z\") : %i\n", atoi("   +2147483641z"));
+	printf("atoi(\"\") : %i\n", atoi(""));
+	printf("ft_atoi(\"\") : %i\n", atoi(""));
+	printf("atoi(\"-\") : %i\n", atoi("-"));
+	printf("ft_atoi(\"-\") : %i\n", atoi("-"));
+	printf("atoi(\"+\") : %i\n", atoi("+"));
+	printf("ft_atoi(\"+\") : %i\n", atoi("+"));
+	printf("atoi(\"++4\") : %i\n", atoi("++4"));
+	printf("ft_atoi(\"++4\") : %i\n", atoi("++4"));
+	printf("atoi(\"--4\") : %i\n", atoi("--4"));
+	printf("ft_atoi(\"--4\") : %i\n", atoi("--4"));
+	printf("atoi(\"\\n\") : %i\n", atoi("\n"));
+	printf("ft_atoi(\"\\n\") : %i\n", atoi("\n"));
+	printf("atoi(\"qezzqe\") : %i\n", atoi("qezzqe"));
+	printf("ft_atoi(\"qezzqe\") : %i\n", atoi("qezzqe"));
 	printf("\n\n");
 
 	printf("FONCTIONS BONUS\n");
@@ -227,21 +205,20 @@ int		main(void)
 	cmp = ft_atoi_base("234", "\t0123456789");
 	printf("ft_atoi_base(\"234\", \"\t0123456789\") : %i\n", cmp);
 	
-	printf("\nLIST FONCTIONS\n");
+	printf("\n\nLIST FONCTIONS\n");
 	list = ft_create_elem("test");
 	printf("ft_create_elem(\"test\")\n");
 	printf("list : %p, list->data : %p, list->next : %p\n", list, &list->data, &list->next);
-	printf("list->data : %s, list->next : %p\n", list->data, list->next);
+	printf("list->data : %s, list->next : %p\n", (char*)list->data, list->next);
 	printf("ft_list_push_front(&list, \"test2\")\n");
 	ft_list_push_front(&list, "test2");
-	printf("list->data : %s, list->next : %p\n", list->data, list->next);
+	printf("list->data : %s, list->next : %p\n", (char*)list->data, list->next);
 	printf("ft_list_size(list)\n");
 	printf("size : %lu\n", ft_list_size(list));
 	printf("ft_list_pop_front(&list)\n");
 	ptr = ft_list_pop_front(&list);
-	printf("ptr : %s, list->data : %s\n", ptr, list->data);
-*/
-	printf("\nLIST FONCTIONS\n");
+	printf("ptr : %s, list->data : %s\n", (char*)ptr, (char*)list->data);
+
 	list = ft_create_elem(ft_strdup("robert"));
 	ft_list_push_front(&list, ft_strdup("flavien"));
 	ft_list_push_front(&list, ft_strdup("ayuma"));
@@ -258,25 +235,23 @@ int		main(void)
 	node = list;
 	while (node)
 	{
-		printf("%s\n", node->data);
+		printf("%s\n",(char*)node->data);
 		node = node->next;
 	}
-	/*
 	ft_list_sort(&list, ft_strcmp);
 	printf("\nsorted :\n");
 	node = list;
 	while (node)
 	{
-		printf("%s\n", node->data);
+		printf("%s\n", (char*)node->data);
 		node = node->next;
 	}
-	*/
 	printf("remove if -> robert\n");
 	ft_list_remove_if(&list, "robert", ft_strcmp, free);
 	node = list;
 	while (node)
 	{
-		printf("%s\n", node->data);
+		printf("%s\n", (char*)node->data);
 		printf("%p\n", node->next);
 		node = node->next;
 	}

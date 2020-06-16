@@ -2,11 +2,11 @@
 ; Registers :	rdi rcx
 ; Description :	return a new string copy of the input string
 
-global		_ft_strlen
+global		ft_strlen
 
 section		.text
 
-_ft_strlen:
+ft_strlen:
 	cld
 	xor		rcx, rcx
 	not		rcx

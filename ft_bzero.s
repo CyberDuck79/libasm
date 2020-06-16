@@ -2,11 +2,11 @@
 ; Registers :	rdi rsi rcx rdx
 ; Description :	set the memory pointed by s to 0 for n bytes
 
-global		_ft_bzero
+global		ft_bzero
 
 section		.text
 
-_ft_bzero:
+ft_bzero:
 	cld
 	mov		rcx, 0x08
 	mov		rax, rsi

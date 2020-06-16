@@ -2,11 +2,11 @@
 ; Registers :	rdi rsi rcx
 ; Description :	return index of a char in a set, -1 if not present in set
 
-global		_ft_setindex
+global		ft_setindex
 
 section		.text
 
-_ft_setindex:
+ft_setindex:
 	cld
 	xor		rcx, rcx
 	test	sil, sil
@@ -15,7 +15,7 @@ _ft_setindex:
 	xor		al, al
 	repne	scasb
 	not		rcx
-	lea		rcx, [rcx+2]
+	;lea		rcx, [rcx+2]
 	std
 	mov		al, sil
 	repne	scasb

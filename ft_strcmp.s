@@ -1,13 +1,14 @@
 ; Prototype :	int ft_strcmp(const char *s1, const char *s2)
-; Registers :	rdi rsi
+; Registers :	rdi rsi rdx
 ; Description :	compare string and return 0 if equal, -1 if s1 < s2 or 1 if s1 > s2
 
-global		_ft_strcmp
+global		ft_strcmp
 
 section		.text
 
-_ft_strcmp:
+ft_strcmp:
 	xor		rax, rax
+	xor		rdx, rdx
 	cld
 .compare:
 	cmp		byte [rsi], 0x00
@@ -18,12 +19,7 @@ _ft_strcmp:
 .last:
 	cmpsb
 .diff:
-	jl		.lesser
-	jg		.greater
-	ret
-.greater:
-	dec		rax
-	ret
-.lesser:
-	inc		rax
+	mov		al, byte [rdi - 1]
+	mov		dl, byte [rsi - 1]
+	sub		rax, rdx
 	ret

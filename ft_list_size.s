@@ -2,11 +2,11 @@
 ; Registers : rdi
 ; Description : Return the size of a list
 
-global		_ft_list_size
+global		ft_list_size
 
 section		.text
 
-_ft_list_size:
+ft_list_size:
 	xor		rax, rax
 .check_next:
 	test	rdi, rdi

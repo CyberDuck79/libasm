@@ -2,11 +2,11 @@
 ; Registers :	rdi rsi rdx rcx r8
 ; Description :	copy memory from src to dst for n bytes, return dst
 
-global		_ft_memcpy
+global		ft_memcpy
 
 section		.text
 
-_ft_memcpy:
+ft_memcpy:
 	cld
 	mov		r8, rdi
 	mov		rcx, 0x08

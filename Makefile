@@ -27,14 +27,14 @@ OBJS = $(addsuffix .o,$(SRCS))
 OBJS_BONUS = $(addsuffix .o,$(SRCS_BONUS))
 
 ASM_COMPILER = nasm
-ASM_FLAGS = -f macho64 -g -F dwarf
+ASM_FLAGS = -f elf64 -g -F dwarf
 
 C_COMPILER = gcc
 #C_FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
-C_FLAGS = -g -fsanitize=address
+C_FLAGS = -g -no-pie
 
 LINKER = ld
-L_FLAGS = -e _main -macosx_version_min 10.15 -lSystem -arch x86_64
+L_FLAGS = -e _main -arch x86_64
 
 LIB_ARCHIVER = ar rc
 LIB_INDEXER = ranlib
@@ -53,8 +53,8 @@ bonus: $(OBJS) $(OBJS_BONUS)
 	$(LIB_ARCHIVER) $(NAME) $(OBJS) $(OBJS_BONUS)
 	$(LIB_INDEXER) $(NAME)
 
-$(TEST_NAME): $(NAME) $(OBJS) $(OBJS_BONUS) $(SRC_TEST)
-	$(C_COMPILER) $(C_FLAGS) $^ -o $@
+$(TEST_NAME): bonus $(SRC_TEST)
+	$(C_COMPILER) $(C_FLAGS) $(SRC_TEST) $(NAME) -o $@
 
 $(DBG_NAME): $(OBJS) $(OBJS_BONUS) $(OBJ_DBG)
 	$(LINKER) $(L_FLAGS) $^ -o $@

@@ -2,11 +2,11 @@
 ; Registers :	rdi rsi rcx
 ; Description :	return 1 if a char of the set is present in the input string
 
-global		_ft_checkset
+global		ft_checkset
 
 section 	.text
 
-_ft_checkset:
+ft_checkset:
 	cld
 	mov		rcx, rdi
 .reset_str:

@@ -2,13 +2,13 @@
 ; Registers : rdi rsi rdx rcx r8 r9 r10 r11
 ; Description : return the first node and remove it from the list
 
-global		_ft_list_pop_front
+global		ft_list_pop_front
 
-extern		_free
+extern		free
 
 section		.text
 
-_ft_list_pop_front:
+ft_list_pop_front:
 	mov		rax, [rdi]
 	mov		rsi, [rax+8]
 	mov		[rdi], rsi
@@ -18,7 +18,7 @@ _ft_list_pop_front:
 	push	rax
 	sub		rsp, 0x08
 	mov		rdi, rsi
-	call	_free
+	call	free
 	add		rsp, 0x08
 	pop		rax
 	pop		rdi

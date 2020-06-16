@@ -200,7 +200,7 @@
 198	AUE_NULL			{ int nosys(void); } 	{ __sysc }
 199	AUE_LSEEK			{ off_t lseek(int fd, off_t offset, int whence); } 
 200	AUE_TRUNCATE		{ int truncate(char *path, off_t length); } 
-201	AUE_FTRUNCATE		{ int ftruncate(int fd, off_t length); } 
+201	AUEftRUNCATE		{ int ftruncate(int fd, off_t length); } 
 202	AUE_SYSCTL	 		{ int __sysctl(int *name, u_int namelen, void *old, size_t *oldlenp, void *new, size_t newlen); } 
 203	AUE_MLOCK			{ int mlock(caddr_t addr, size_t len); } 
 204	AUE_MUNLOCK			{ int munlock(caddr_t addr, size_t len); } 

@@ -2,18 +2,18 @@
 ; Registers :	rdi rsi rdx rcx r8
 ; Description :	copy string src to dst, dst need to be large enough
 
-global		_ft_strcpy
+global		ft_strcpy
 
-extern		_ft_strlen
-extern		_ft_memcpy
+extern		ft_strlen
+extern		ft_memcpy
 
 section		.text
 
-_ft_strcpy:
+ft_strcpy:
 	mov		rdx, rdi
 	mov		rdi, rsi
-	call	_ft_strlen
+	call	ft_strlen
 	mov		rdi, rdx
 	mov		rdx, rax
-	call	_ft_memcpy
+	call	ft_memcpy
 	ret

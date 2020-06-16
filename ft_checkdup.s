@@ -2,13 +2,13 @@
 ; Registers :	rdi rsi
 ; Description :	return 1 if dup in the input string
 
-global		_ft_checkdup
+global		ft_checkdup
 
 section		.text
 
-.reset:
+reset:
 	inc		rdi
-_ft_checkdup:
+ft_checkdup:
 	cld
 	cmp		byte [rdi], 0x00
 	je		.false
@@ -16,7 +16,7 @@ _ft_checkdup:
 .next:
 	lodsb
 	test	al, al
-	jz		.reset
+	jz		reset
 	cmp		byte [rdi], al
 	jne		.next
 	mov		rax, 0x01

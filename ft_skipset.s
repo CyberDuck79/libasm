@@ -2,11 +2,11 @@
 ; Registers :	rdi rsi rcx
 ; Description :	return ptr to the next char of the input str who is not in the set
 
-global		_ft_skipset
+global		ft_skipset
 
 section		.text
 
-_ft_skipset:
+ft_skipset:
 	cld
 	mov		rcx, rsi
 	jmp		.compare

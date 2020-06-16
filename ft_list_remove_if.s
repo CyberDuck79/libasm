@@ -2,13 +2,13 @@
 ; registers : rdi rsi rdx rcx -- reg used by cmp -- r12 r13 r14 r15
 ; Description : compare elements of the list with data_ref applying cmp function and remove if return 0
 
-global		_ft_list_remove_if
+global		ft_list_remove_if
 
-extern		_free
+extern		free
 
 section		.text
 
-_ft_list_remove_if:
+ft_list_remove_if:
 	push	r12				; save callee saved registers
 	push	r13				; used because don't know
 	push	r14				; parameters registers
@@ -35,7 +35,7 @@ _ft_list_remove_if:
 	mov		rcx, [rdx+8]	; get next->next
 	mov		[r12+8], rcx	; replace elem->next
 	mov		rdi, rcx		; put previous next as arg
-	call	_free			; free node
+	call	free			; free node
 .no_del:
 	lea		rbx, [r12+8]	; save a pointer to next
 	mov		r12, [r12+8]	; next element
@@ -50,6 +50,6 @@ _ft_list_remove_if:
 	ret
 .del_last:
 	mov		rdi, r12
-	call	_free			; free node
+	call	free			; free node
 	mov		qword [rbx], 0x00	; set null 
 	jmp		.return
